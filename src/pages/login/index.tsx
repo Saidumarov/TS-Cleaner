@@ -66,6 +66,7 @@ const Login = () => {
                 onChange={handelChange}
                 name="email"
                 type="email"
+                placeholder="email@gmail.com"
               />
             </FormControl>
             <FormControl>
@@ -80,6 +81,7 @@ const Login = () => {
                 name="password"
                 onChange={handelChange}
                 type="password"
+                placeholder="********"
               />
             </FormControl>
             {loading ? (

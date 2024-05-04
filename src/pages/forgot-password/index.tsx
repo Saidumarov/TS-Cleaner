@@ -99,6 +99,7 @@ const ForgotPassword = () => {
                     }
                     name="email"
                     type="email"
+                    placeholder="email@gmail.com"
                   />
                 </FormControl>
                 <FormControl>
@@ -110,6 +111,7 @@ const ForgotPassword = () => {
                       handelChange(e.target.name, e.target.value)
                     }
                     type="password"
+                    placeholder="********"
                   />
                 </FormControl>
                 {loading ? (
@@ -139,6 +141,7 @@ const ForgotPassword = () => {
                       }
                       name="email"
                       type="email"
+                      placeholder="email@gmail.com"
                     />
                   </FormControl>
                   {loading ? (

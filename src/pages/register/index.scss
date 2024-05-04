@@ -23,6 +23,7 @@
       }
     }
   }
+
   .register_item {
     width: 450px;
     height: auto;
@@ -59,27 +60,23 @@
       }
     }
   }
-  .verify_code {
-    h2 {
-      font-size: 28px;
-      text-align: center;
+}
+.verify_code {
+  .opt {
+    padding-top: 10px;
+    input {
+      width: 70px;
+      height: 50px;
     }
-    .opt {
-      padding-top: 10px;
-      input {
-        width: 70px;
-        height: 50px;
-      }
-    }
-    button {
-      background-color: rgb(13, 121, 222);
-      color: white;
-      width: 100%;
-      height: 45px;
-      margin-top: 10px;
-    }
-    button:hover {
-      background-color: rgb(13, 121, 222);
-    }
+  }
+  button {
+    background-color: rgb(13, 121, 222);
+    color: white;
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: rgb(13, 121, 222) !important;
   }
 }

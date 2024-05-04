@@ -23,7 +23,7 @@ const useAuthStore = create<Config>((set) => ({
     } catch (error) {
       set({ error: error });
     } finally {
-      set({ loading: false, error: "" });
+      set({ loading: false });
     }
   },
   //verify
