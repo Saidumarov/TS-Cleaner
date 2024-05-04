@@ -1,0 +1,60 @@
+.forgot_wrapper {
+  width: 100%;
+  height: 100vh;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    .back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      cursor: pointer;
+      font-weight: bold;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .forgot_item {
+    height: 450px;
+    margin: 0 auto;
+    form {
+      width: 450px;
+      margin: 0 auto;
+      .label_password {
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .opt {
+        input {
+          width: 70px;
+        }
+      }
+      input {
+        height: 50px;
+      }
+      button {
+        background-color: rgb(13, 121, 222);
+        color: white;
+        width: 100%;
+        height: 50px;
+        margin-top: 30px;
+      }
+      label {
+        padding-top: 20px;
+      }
+      button:hover {
+        background-color: rgb(13, 121, 222);
+      }
+    }
+  }
+}
