@@ -49,3 +49,9 @@ export interface Config {
   forgotPassword: (user: ForgotPasswordT) => Promise<void>;
   forgotPasswordVerify: (user: ForgotPasswordVerify) => Promise<void>;
 }
+
+// card information
+export interface CardT {
+  title: string;
+  count: string;
+}

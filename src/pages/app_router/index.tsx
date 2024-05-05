@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -8,7 +8,12 @@ import { Avatar, Button, Input, Layout, Menu, theme } from "antd";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
-import { IoSearch, IoSettingsOutline, IoWaterOutline } from "react-icons/io5";
+import {
+  IoAddCircleOutline,
+  IoSearch,
+  IoSettingsOutline,
+  IoWaterOutline,
+} from "react-icons/io5";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { GrUserSettings } from "react-icons/gr";
 import "./index.scss";
@@ -20,9 +25,21 @@ const { Header, Sider, Content } = Layout;
 
 const AppRouter = () => {
   const [collapsed, setCollapsed] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 715) {
+        setCollapsed(true);
+      } else {
+        setCollapsed(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const root = useNavigate();
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer },
   } = theme.useToken();
 
   const data = [
@@ -32,13 +49,13 @@ const AppRouter = () => {
       label: "Asosiy",
     },
     {
-      key: "/buyurtmalar",
+      key: "/orders",
       icon: <LiaCartArrowDownSolid />,
       label: "Buyurtmalar",
     },
 
     {
-      key: "/mijoslar",
+      key: "/clients",
       icon: <FaRegUser />,
       label: "Mijoslar",
     },
@@ -48,12 +65,12 @@ const AppRouter = () => {
       label: "SMS marketing",
     },
     {
-      key: "/xizmatlar",
+      key: "/service",
       icon: <GrUserSettings />,
       label: "Xizmatlar",
     },
     {
-      key: "/sozlamalar",
+      key: "/settings",
       icon: <IoSettingsOutline />,
       label: "Sozlamalar",
     },
@@ -63,7 +80,7 @@ const AppRouter = () => {
     <Layout>
       <Sider className="home" trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
-        <div className="logo">
+        <div className={`logo ${collapsed ? "active" : ""}`}>
           <IoWaterOutline size={55} color="white" />
           <Text fontSize={"3xl"}>
             Ideal <br /> Cleanig
@@ -96,13 +113,15 @@ const AppRouter = () => {
                   width: 100,
                   height: 64,
                 }}
+                className="siteBarIcon"
               />
               <Button
                 className="add"
                 style={{ height: "40px", marginLeft: "50px" }}
                 type="primary"
               >
-                Buyurtma qo'shish
+                <p> Buyurtma qo'shish</p>
+                <IoAddCircleOutline fontSize={25} />
               </Button>
 
               <Input
@@ -116,7 +135,7 @@ const AppRouter = () => {
               />
             </div>
             <div className="flex_item" style={{ gap: "15px" }}>
-              <IoMdNotificationsOutline size={25} />
+              <IoMdNotificationsOutline className="notfication" size={25} />
               <Avatar
                 style={{ cursor: "pointer" }}
                 size={40}
@@ -130,9 +149,6 @@ const AppRouter = () => {
           style={{
             margin: "24px 16px",
             padding: 24,
-            minHeight: 280,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
           }}
         >
           <Outlet />

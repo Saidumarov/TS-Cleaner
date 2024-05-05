@@ -1,6 +1,5 @@
 .home {
   height: 100vh;
-  width: 100%;
   position: sticky !important;
   top: 0 !important;
   z-index: 20;
@@ -16,20 +15,61 @@
     color: white;
   }
 }
+.logo.active {
+  p {
+    font-size: 17px;
+    line-height: 20px;
+  }
+}
 
 .header {
   position: sticky !important;
   top: 0 !important;
   z-index: 20;
   padding-right: 30px !important;
+  @media (max-width: 715px) {
+    padding-right: 0 !important;
+  }
 }
 .flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 715px) {
+    justify-content: space-between;
+    padding-top: 20px;
+  }
 }
 .flex_item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .add {
+    svg {
+      display: none;
+    }
+  }
+  @media (max-width: 715px) {
+    gap: 5px !important;
+    .add {
+      margin-left: 20px !important;
+      p {
+        display: none;
+      }
+      svg {
+        display: block;
+      }
+    }
+  }
+}
+@media (max-width: 715px) {
+  .notfication {
+    display: none;
+  }
+  .avatar {
+    margin-left: 5px;
+  }
+  .siteBarIcon {
+    display: none !important;
+  }
 }
