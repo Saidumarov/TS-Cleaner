@@ -1,10 +1,12 @@
-import { Heading } from "@chakra-ui/react";
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 
 const SMS = () => {
   return (
-    <div>
-      <Heading>SMS marketing</Heading>
-    </div>
+    <ChakraProvider>
+      <div>
+        <Heading>SMS marketing</Heading>
+      </div>
+    </ChakraProvider>
   );
 };
 

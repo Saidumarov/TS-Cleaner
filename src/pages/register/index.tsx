@@ -1,5 +1,6 @@
 import {
   Button,
+  ChakraProvider,
   FormControl,
   FormLabel,
   HStack,
@@ -116,115 +117,117 @@ const Register = () => {
   }, []);
 
   return (
-    <div className="register_wrapper">
-      <div className="container">
-        <div onClick={() => root(-1)} className="back">
-          <IoChevronBack />
-          <p>Orqaga</p>
-        </div>
-        <Modal isCentered isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Kodni kriting</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody paddingBottom={10}>
-              <div className="verify_code">
-                <HStack className="opt">
-                  <PinInput onChange={(e) => handleChange(e)}>
-                    <PinInputField />
-                    <PinInputField />
-                    <PinInputField />
-                    <PinInputField />
-                    <PinInputField />
-                    <PinInputField />
-                  </PinInput>
-                </HStack>
-                {loading ? (
-                  <Button isLoading></Button>
-                ) : (
-                  <Button
-                    onClick={handelVerify}
-                    isDisabled={pin?.length < 6}
-                    type="submit"
-                  >
-                    Tasdiqlash
-                  </Button>
-                )}
-              </div>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-        <div className="register_item">
-          <Heading>Ro'yxatdan o'tish</Heading>
-          <form onSubmit={(e) => handelSubmit(e)}>
-            <FormControl>
-              <FormLabel>Ismingiz</FormLabel>
-              <Input
-                isRequired
-                onChange={handelChange}
-                name="full_name"
-                type="name"
-                placeholder="Full Name"
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Telifon raqamingiz</FormLabel>
-              <Input
-                isRequired
-                onChange={handelChange}
-                name="phone_number"
-                type="tel"
-                ref={inputRef}
-                placeholder="+998 (XX) XXX-XX-XX"
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Email</FormLabel>
-              <Input
-                isRequired
-                onChange={handelChange}
-                name="email"
-                type="email"
-                placeholder="email@.com"
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Parol</FormLabel>
-              <Input
-                isRequired
-                onChange={handelChange}
-                name="password"
-                type="password"
-                placeholder="********"
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Parolni tasdiqlash</FormLabel>
-              <Input
-                isRequired
-                onChange={(e: any) => setconfirmPassword(e.target.value)}
-                name="confirmPassword"
-                type="password"
-                placeholder="********"
-              />
-            </FormControl>
-            {loading ? (
-              <Button isLoading></Button>
-            ) : (
-              <Button isDisabled={disabled()} type="submit">
-                Ro'yxatdan o'tish
-              </Button>
-            )}
-            <p className="not_user">
-              Ro'yxatdan o'tganmisiz ?
-              <Link className="link" to={"/login"}>
-                Tizimga kirish
-              </Link>
-            </p>
-          </form>
+    <ChakraProvider>
+      <div className="register_wrapper">
+        <div className="container">
+          <div onClick={() => root(-1)} className="back">
+            <IoChevronBack />
+            <p>Orqaga</p>
+          </div>
+          <Modal isCentered isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Kodni kriting</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody paddingBottom={10}>
+                <div className="verify_code">
+                  <HStack className="opt">
+                    <PinInput onChange={(e) => handleChange(e)}>
+                      <PinInputField />
+                      <PinInputField />
+                      <PinInputField />
+                      <PinInputField />
+                      <PinInputField />
+                      <PinInputField />
+                    </PinInput>
+                  </HStack>
+                  {loading ? (
+                    <Button isLoading></Button>
+                  ) : (
+                    <Button
+                      onClick={handelVerify}
+                      isDisabled={pin?.length < 6}
+                      type="submit"
+                    >
+                      Tasdiqlash
+                    </Button>
+                  )}
+                </div>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+          <div className="register_item">
+            <Heading>Ro'yxatdan o'tish</Heading>
+            <form onSubmit={(e) => handelSubmit(e)}>
+              <FormControl>
+                <FormLabel>Ismingiz</FormLabel>
+                <Input
+                  isRequired
+                  onChange={handelChange}
+                  name="full_name"
+                  type="name"
+                  placeholder="Full Name"
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Telifon raqamingiz</FormLabel>
+                <Input
+                  isRequired
+                  onChange={handelChange}
+                  name="phone_number"
+                  type="tel"
+                  ref={inputRef}
+                  placeholder="+998 (XX) XXX-XX-XX"
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Email</FormLabel>
+                <Input
+                  isRequired
+                  onChange={handelChange}
+                  name="email"
+                  type="email"
+                  placeholder="email@.com"
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Parol</FormLabel>
+                <Input
+                  isRequired
+                  onChange={handelChange}
+                  name="password"
+                  type="password"
+                  placeholder="********"
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>Parolni tasdiqlash</FormLabel>
+                <Input
+                  isRequired
+                  onChange={(e: any) => setconfirmPassword(e.target.value)}
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="********"
+                />
+              </FormControl>
+              {loading ? (
+                <Button isLoading></Button>
+              ) : (
+                <Button isDisabled={disabled()} type="submit">
+                  Ro'yxatdan o'tish
+                </Button>
+              )}
+              <p className="not_user">
+                Ro'yxatdan o'tganmisiz ?
+                <Link className="link" to={"/login"}>
+                  Tizimga kirish
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </ChakraProvider>
   );
 };
 

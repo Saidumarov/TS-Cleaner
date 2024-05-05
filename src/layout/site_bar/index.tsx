@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Text } from "@chakra-ui/react";
+import { ChakraProvider, Text } from "@chakra-ui/react";
 import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useNavigate } from "react-router-dom";
@@ -50,30 +50,32 @@ const SiteBar: FC<SiteBarProps> = ({ state }) => {
 
   return (
     <>
-      <Sider
-        className="home"
-        trigger={null}
-        collapsible
-        collapsed={state.collapsed}
-      >
-        <div className="demo-logo-vertical" />
-        <div className={`logo ${state.collapsed ? "active" : ""}`}>
-          <IoWaterOutline size={55} color="white" />
-          <Text fontSize={"3xl"}>
-            Ideal <br /> Cleanig
-          </Text>
-        </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["/"]}
-          items={data}
-          onClick={(e) => root(e.key)}
-          style={{
-            marginTop: "5px",
-          }}
-        />
-      </Sider>
+      <ChakraProvider>
+        <Sider
+          className="home"
+          trigger={null}
+          collapsible
+          collapsed={state.collapsed}
+        >
+          <div className="demo-logo-vertical" />
+          <div className={`logo ${state.collapsed ? "active" : ""}`}>
+            <IoWaterOutline size={55} color="white" />
+            <Text fontSize={"3xl"}>
+              Ideal <br /> Cleanig
+            </Text>
+          </div>
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={["/"]}
+            items={data}
+            onClick={(e) => root(e.key)}
+            style={{
+              marginTop: "5px",
+            }}
+          />
+        </Sider>
+      </ChakraProvider>
     </>
   );
 };

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BannerCard, Cards } from "../../db/card";
 import Card from "../../components/shared/card/card";
 import "./index.scss";
-import { Heading, Text } from "@chakra-ui/react";
+import { ChakraProvider, Heading, Text } from "@chakra-ui/react";
 import { Dropdown, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 const Home = () => {
@@ -37,7 +37,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <ChakraProvider>
       <div className="hom_cards">
         {Cards.map((item, index) => (
           <Card key={index} {...item} />
@@ -62,7 +62,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-    </div>
+    </ChakraProvider>
   );
 };
 

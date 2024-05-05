@@ -1,5 +1,6 @@
 import {
   Button,
+  ChakraProvider,
   FormControl,
   FormLabel,
   Heading,
@@ -54,51 +55,53 @@ const Login = () => {
     }
   }, []);
   return (
-    <div className="login_wrapper">
-      <div className="container">
-        <div className="login_item">
-          <Heading>Tizimga kirish</Heading>
-          <form onSubmit={(e) => handelSubmit(e)}>
-            <FormControl>
-              <FormLabel>Email</FormLabel>
-              <Input
-                isRequired
-                onChange={handelChange}
-                name="email"
-                type="email"
-                placeholder="email@gmail.com"
-              />
-            </FormControl>
-            <FormControl>
-              <div className="label_password">
-                <FormLabel>Parol</FormLabel>
-                <FormLabel>
-                  <Link to={"/forgot-password"}>Parolni unidingizmi ?</Link>
-                </FormLabel>
-              </div>
-              <Input
-                isRequired
-                name="password"
-                onChange={handelChange}
-                type="password"
-                placeholder="********"
-              />
-            </FormControl>
-            {loading ? (
-              <Button isLoading></Button>
-            ) : (
-              <Button type="submit">Tizimga kirish</Button>
-            )}
-            <p className="not_user">
-              Hisobingiz yuqmi ?{" "}
-              <Link className="link" to={"/register"}>
-                Ro'yhatdan o'tish
-              </Link>
-            </p>
-          </form>
+    <ChakraProvider>
+      <div className="login_wrapper">
+        <div className="container">
+          <div className="login_item">
+            <Heading>Tizimga kirish</Heading>
+            <form onSubmit={(e) => handelSubmit(e)}>
+              <FormControl>
+                <FormLabel>Email</FormLabel>
+                <Input
+                  isRequired
+                  onChange={handelChange}
+                  name="email"
+                  type="email"
+                  placeholder="email@gmail.com"
+                />
+              </FormControl>
+              <FormControl>
+                <div className="label_password">
+                  <FormLabel>Parol</FormLabel>
+                  <FormLabel>
+                    <Link to={"/forgot-password"}>Parolni unidingizmi ?</Link>
+                  </FormLabel>
+                </div>
+                <Input
+                  isRequired
+                  name="password"
+                  onChange={handelChange}
+                  type="password"
+                  placeholder="********"
+                />
+              </FormControl>
+              {loading ? (
+                <Button isLoading></Button>
+              ) : (
+                <Button type="submit">Tizimga kirish</Button>
+              )}
+              <p className="not_user">
+                Hisobingiz yuqmi ?{" "}
+                <Link className="link" to={"/register"}>
+                  Ro'yhatdan o'tish
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </ChakraProvider>
   );
 };
 

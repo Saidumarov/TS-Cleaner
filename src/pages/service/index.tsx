@@ -1,10 +1,12 @@
-import { Heading } from "@chakra-ui/react";
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 
 const Servece = () => {
   return (
-    <div>
-      <Heading>Xizmatlar</Heading>
-    </div>
+    <ChakraProvider>
+      <div>
+        <Heading>Xizmatlar</Heading>
+      </div>
+    </ChakraProvider>
   );
 };
 

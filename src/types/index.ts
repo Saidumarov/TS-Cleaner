@@ -68,3 +68,40 @@ export type HeaderProps = {
     setCollapsed: (collapsed: boolean) => void;
   };
 };
+
+// Service information
+export interface Service {
+  id: string;
+  name: string;
+  price: number;
+  created_at: string;
+}
+
+export interface ServiceAdd {
+  name: string;
+  price: number;
+  owner_email: string;
+}
+
+export interface ServiceEdit {
+  id: string;
+  name: string;
+  price: number;
+  owner_email: string;
+}
+
+export interface getServiceT {
+  page: number;
+  limit: number;
+  ownerEmail: string;
+  token: string;
+}
+export interface ServiceConfig {
+  data: Service[];
+  loading: boolean;
+  error: any;
+  getService: (data: getServiceT) => Promise<void>;
+  addService: (data: ServiceAdd, token: string) => Promise<void>;
+  updateService: (data: ServiceEdit, token: string) => Promise<void>;
+  deleteService: (id: string, token: string) => Promise<void>;
+}

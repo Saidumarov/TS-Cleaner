@@ -1,5 +1,6 @@
 import {
   Button,
+  ChakraProvider,
   FormControl,
   FormLabel,
   HStack,
@@ -65,7 +66,7 @@ const ForgotPassword = () => {
   }, [error, forgotPasswordData, forgotPasswordVerifyData]);
 
   return (
-    <div>
+    <ChakraProvider>
       <div className="forgot_wrapper">
         <div className="container">
           <div onClick={() => root(-1)} className="back">
@@ -155,7 +156,7 @@ const ForgotPassword = () => {
           </div>
         </div>
       </div>
-    </div>
+    </ChakraProvider>
   );
 };
 

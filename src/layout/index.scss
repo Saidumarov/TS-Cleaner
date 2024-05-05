@@ -73,3 +73,13 @@
     display: none !important;
   }
 }
+
+.footer_modal {
+  background-color: "red" !important;
+  width: 100%;
+  button {
+    height: 40px;
+    width: 110px;
+    margin-right: 10px;
+  }
+}

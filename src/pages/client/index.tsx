@@ -1,10 +1,12 @@
-import { Heading } from "@chakra-ui/react";
+import { ChakraProvider, Heading } from "@chakra-ui/react";
 
 const Client = () => {
   return (
-    <div>
-      <Heading>Mijoslar</Heading>
-    </div>
+    <ChakraProvider>
+      <div>
+        <Heading>Mijoslar</Heading>
+      </div>
+    </ChakraProvider>
   );
 };
 
