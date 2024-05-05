@@ -3,7 +3,7 @@ import Home from "../pages/home";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import ForgotPassword from "../pages/forgot-password";
-import AppRouter from "../pages/app_router";
+import AppRouter from "../layout";
 import Orders from "../pages/cart";
 import Client from "../pages/client";
 import SMS from "../pages/email";

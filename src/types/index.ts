@@ -55,3 +55,16 @@ export interface CardT {
   title: string;
   count: string;
 }
+
+export type SiteBarProps = {
+  state: {
+    collapsed: boolean;
+  };
+};
+
+export type HeaderProps = {
+  state: {
+    collapsed: boolean;
+    setCollapsed: (collapsed: boolean) => void;
+  };
+};
