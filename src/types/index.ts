@@ -100,6 +100,7 @@ export interface ServiceConfig {
   data: Service[];
   loading: boolean;
   error: any;
+  render: any;
   getService: (data: getServiceT) => Promise<void>;
   addService: (data: ServiceAdd, token: string) => Promise<void>;
   updateService: (data: ServiceEdit, token: string) => Promise<void>;

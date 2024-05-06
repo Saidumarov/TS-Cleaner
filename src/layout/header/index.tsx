@@ -27,7 +27,7 @@ import toast from "react-hot-toast";
 
 const { Header } = Layout;
 const HeaderComponet: FC<HeaderProps> = ({ state }) => {
-  const { getService, addService } = useServiceStore();
+  const { render, getService, addService } = useServiceStore();
   const root = useNavigate();
   const {
     token: { colorBgContainer },
@@ -82,7 +82,7 @@ const HeaderComponet: FC<HeaderProps> = ({ state }) => {
       };
       getService(obj);
     }
-  }, []);
+  }, [render]);
 
   const handelChange = (name: string, value: any) => {
     setDataa({
