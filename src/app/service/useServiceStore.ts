@@ -69,7 +69,6 @@ const useServiceStore = create<ServiceConfig>((set) => ({
   },
   updateService: async (data: ServiceEdit, token: string) => {
     set({ loading: true });
-    console.log(data);
 
     try {
       const res = await axios.put(`${API_BASE_URL}/update/${data?.id}`, data, {

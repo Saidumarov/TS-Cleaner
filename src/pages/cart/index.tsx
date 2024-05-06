@@ -25,7 +25,6 @@ import { useRef, useState } from "react";
 import { Button, Input } from "antd";
 import LoadingProduct from "../../components/loading";
 import toast, { Toaster } from "react-hot-toast";
-
 const Orders = () => {
   const { data, updateService, deleteService, loading } = useServiceStore();
   const [dataa, setDataa] = useState({
@@ -48,6 +47,8 @@ const Orders = () => {
       toast.error("Buyurtma o'chirildi");
     }
   };
+
+  console.log(data);
 
   const editProduct = (el: any) => {
     setDataa({
