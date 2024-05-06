@@ -13,6 +13,9 @@ import { SiteBarProps } from "../../types";
 
 const SiteBar: FC<SiteBarProps> = ({ state }) => {
   const root = useNavigate();
+  const url = window.location.href;
+  const orders = url.split("/");
+  const ordersUrl = orders[3];
 
   const data = [
     {
@@ -67,7 +70,7 @@ const SiteBar: FC<SiteBarProps> = ({ state }) => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={["/"]}
+            defaultSelectedKeys={["/" + ordersUrl]}
             items={data}
             onClick={(e) => root(e.key)}
             style={{
