@@ -24,7 +24,6 @@ import {
 import useServiceStore from "../../app/service/useServiceStore";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import axios from "axios";
 
 const { Header } = Layout;
 const HeaderComponet: FC<HeaderProps> = ({ state }) => {
