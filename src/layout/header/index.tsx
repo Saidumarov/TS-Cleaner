@@ -24,11 +24,13 @@ import {
 import useServiceStore from "../../app/service/useServiceStore";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const { Header } = Layout;
 const HeaderComponet: FC<HeaderProps> = ({ state }) => {
-  const { render, getService, addService } = useServiceStore();
+  const { render, getService, addService, getSearch } = useServiceStore();
   const root = useNavigate();
+  const [value, setValue] = useState("");
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -89,6 +91,24 @@ const HeaderComponet: FC<HeaderProps> = ({ state }) => {
       ...dataa,
       [name]: value,
     });
+  };
+
+  // search
+
+  const handleSearchChange = () => {
+    const data = localStorage.getItem("tokenData");
+    if (data) {
+      const tokenData = JSON.parse(data);
+      const obj = {
+        page: 1,
+        limit: 10,
+        ownerEmail: tokenData.email,
+        token: tokenData.access_token,
+        name: value,
+      };
+      getSearch(obj);
+      console.log(obj);
+    }
   };
 
   return (
@@ -173,15 +193,22 @@ const HeaderComponet: FC<HeaderProps> = ({ state }) => {
                 <IoAddCircleOutline fontSize={25} />
               </Button>
 
-              <Input
-                size="large"
-                prefix={<IoSearch />}
-                type="text"
-                placeholder="Qidiruv..."
-                style={{ height: "40px" }}
-                allowClear
-                name="search"
-              />
+              <form
+                className="formGroup"
+                onSubmit={(e) => (e.preventDefault(), handleSearchChange())}
+              >
+                <Input
+                  size="large"
+                  prefix={<IoSearch />}
+                  type="text"
+                  placeholder="Qidiruv..."
+                  style={{ height: "40px" }}
+                  allowClear
+                  name="search"
+                  onChange={(e) => setValue(e.target.value)}
+                />
+                <button type="submit"></button>
+              </form>
             </div>
             <div className="flex_item" style={{ gap: "15px" }}>
               <IoMdNotificationsOutline className="notfication" size={25} />

@@ -48,8 +48,6 @@ const Orders = () => {
     }
   };
 
-  console.log(data);
-
   const editProduct = (el: any) => {
     setDataa({
       id: el.id,

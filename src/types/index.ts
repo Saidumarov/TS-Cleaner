@@ -96,6 +96,14 @@ export interface getServiceT {
   ownerEmail: string;
   token: string;
 }
+
+export interface getSearchT {
+  page: number;
+  limit: number;
+  ownerEmail: string;
+  token: string;
+  name: string;
+}
 export interface ServiceConfig {
   data: Service[];
   loading: boolean;
@@ -105,4 +113,7 @@ export interface ServiceConfig {
   addService: (data: ServiceAdd, token: string) => Promise<void>;
   updateService: (data: ServiceEdit, token: string) => Promise<void>;
   deleteService: (id: string, token: string) => Promise<void>;
+  getSearch: (data: getSearchT) => Promise<void>;
 }
+
+// https://app.olimjanov.uz/v1/service/search?page=1&limit=10&name=ja'farxon&owner_email=saidumarovjafarxon@gmail.com
